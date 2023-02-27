@@ -37,9 +37,35 @@
     <p>Direccion: <input type="text" id="direccion" name="direccion" size="40"></p>
     <p>Colonia: <input type="text" id="colonia" name="colonia" size="40"></p>
 
-    <button> <input type="submit" value="Enviar">
+    <hr>
 
-        <button> <input type="reset" value="Borrar">
+
+    <select name="menu" id="menu">
+
+        <optgroup label="Tortas">
+        <option value="hamburguesa">Hamburguesa</option>
+        <option value="tacos">Tacos</option>
+        <option value="Tortas"></option>
+    </optgroup>
+
+    <optgroup label="Tacos">
+        <option value="tacosbistek">Tacos de bistek</option>
+        <option value="tacostrompo">Tacos de trompo</option>
+        <option value="tacospastor">Tacos al pastor</option>
+    </optgroup>
+
+    </select>
+    <titulo1>Verduras</titulo1><br>
+    Vegetales:
+    <input type="checkbox" id="tomate" checked><label for="tomate">Tomate</label>
+    <input type="checkbox" id="cebolla" checked><label for="cebolla">Cebolla</label>
+    <input type="checkbox" id="lechuga" checked><label for="lechuga">Lechuga</label>
+    <input type="checkbox" id="pepinos" checked><label for="pepinos">Pepinos</label>
+
+    <button> <input type="submit" value="Enviar">
+    <button> <input type="reset" value="Borrar">
+
+
     </form>
     <script>
         const form=document.getElementById("pedido");
@@ -51,7 +77,12 @@
             apellido:formData.get("apellido"),
             telefono:formData.get("telefono"),
             direccion:formData.get("direccion"),
-            colonia:formData.get("colonia")
+            colonia:formData.get("colonia"),
+            menu:formData.get("menu"),
+            tomate:document.getElementById("tomate").checked? "Si":"No",
+            cebolla:document.getElementById("cebolla").checked? "Si":"No",
+            lechuga:document.getElementById("lechuga").checked? "Si":"No",
+            pepinos:document.getElementById("pepinos").checked? "Si":"No"
         };
         localStorage.setItem("orden",JSON.stringify(orden));
         window.location.href="pedidorealizado.html";
